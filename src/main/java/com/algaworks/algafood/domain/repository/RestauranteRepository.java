@@ -17,7 +17,7 @@ public interface RestauranteRepository
 	
 	List<Restaurante> consultaPorNome(String nome, @Param("id") Long cozinha);
 	
-	@Query("from Restaurante r join r.cozinha join r.formasPagamento")
+	@Query("from Restaurante r join fetch r.cozinha")
 	List<Restaurante> findAll();
 
 }

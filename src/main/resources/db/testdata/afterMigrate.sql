@@ -1,29 +1,57 @@
-insert into cozinha(nome) values('Tailandesa');
-insert into cozinha(nome) values('Indiana');
-insert into cozinha (id, nome) values (3, 'Argentina');
-insert into cozinha (id, nome) values (4, 'Brasileira');
+set foreign_key_checks = 0;
 
-insert into estado(nome) values('Santa Catarina');
-insert into estado(nome) values('Paraná');
-insert into estado(nome) values('Rio Grande do Sul');
+delete from cidade;
+delete from cozinha;
+delete from estado;
+delete from forma_pagamento;
+delete from grupo;
+delete from grupo_permissao;
+delete from permissao;
+delete from produto;
+delete from restaurante;
+delete from restaurante_forma_pagamento;
+delete from usuario;
+delete from usuario_grupo;
 
-insert into cidade(nome, estado_id) values('Tubarão', 1);
-insert into cidade(nome, estado_id) values('Criciúma', 1);
-insert into cidade(nome, estado_id) values('Maringá', 2);
-insert into cidade(nome, estado_id) values('Curitiba', 2);
-insert into cidade(nome, estado_id) values('Santa Cruz do Sul', 3);
-insert into cidade(nome, estado_id) values('Novo Hamburgo', 3);
+set foreign_key_checks = 1;
 
-insert into restaurante(nome, taxa_frete, cozinha_id, endereco_cidade_id, data_cadastro, data_atualizacao, endereco_cep, endereco_logradouro, endereco_numero, endereco_bairro) values('Tigre asiático', 2.78, 1, 1, utc_timestamp, utc_timestamp, '38400-999', 'Rua João Pinheiro', '1000', 'Centro');
-insert into restaurante(nome, taxa_frete, cozinha_id, data_cadastro, data_atualizacao) values('Taj Mahal', 0, 1, utc_timestamp, utc_timestamp);
+alter table cidade auto_increment = 1;
+alter table cozinha auto_increment = 1;
+alter table estado auto_increment = 1;
+alter table forma_pagamento auto_increment = 1;
+alter table grupo auto_increment = 1;
+alter table permissao auto_increment = 1;
+alter table produto auto_increment = 1;
+alter table restaurante auto_increment = 1;
+alter table usuario auto_increment = 1;
+
+
+insert ignore into cozinha (id, nome) values (1, 'Tailandesa');
+insert ignore into cozinha (id, nome) values (2, 'Indiana');
+insert ignore into cozinha (id, nome) values (3, 'Argentina');
+insert ignore into cozinha (id, nome) values (4, 'Brasileira');
+
+insert ignore into estado(nome) values('Santa Catarina');
+insert ignore into estado(nome) values('Paraná');
+insert ignore into estado(nome) values('Rio Grande do Sul');
+
+insert ignore into cidade(nome, estado_id) values('Tubarão', 1);
+insert ignore into cidade(nome, estado_id) values('Criciúma', 1);
+insert ignore into cidade(nome, estado_id) values('Maringá', 2);
+insert ignore into cidade(nome, estado_id) values('Curitiba', 2);
+insert ignore into cidade(nome, estado_id) values('Santa Cruz do Sul', 3);
+insert ignore into cidade(nome, estado_id) values('Novo Hamburgo', 3);
+
+insert ignore into restaurante(nome, taxa_frete, cozinha_id, endereco_cidade_id, data_cadastro, data_atualizacao, endereco_cep, endereco_logradouro, endereco_numero, endereco_bairro) values('Tigre asiático', 2.78, 1, 1, utc_timestamp, utc_timestamp, '38400-999', 'Rua João Pinheiro', '1000', 'Centro');
+insert ignore into restaurante(nome, taxa_frete, cozinha_id, data_cadastro, data_atualizacao) values('Taj Mahal', 0, 1, utc_timestamp, utc_timestamp);
 insert into restaurante(nome, taxa_frete, cozinha_id, data_cadastro, data_atualizacao) values('Tuk Tuk  Comida Indiana', 0, 2, utc_timestamp, utc_timestamp);
 insert into restaurante (id, nome, taxa_frete, cozinha_id, data_cadastro, data_atualizacao) values (4, 'Java Steakhouse', 12, 3, utc_timestamp, utc_timestamp);
 insert into restaurante (id, nome, taxa_frete, cozinha_id, data_cadastro, data_atualizacao) values (5, 'Lanchonete do Tio Sam', 11, 4, utc_timestamp, utc_timestamp);
 insert into restaurante (id, nome, taxa_frete, cozinha_id, data_cadastro, data_atualizacao) values (6, 'Bar da Maria', 6, 4, utc_timestamp, utc_timestamp);
 
-insert into forma_pagamento(nome) values('Dinheiro');
-insert into forma_pagamento(nome) values('Cartão de crédito');
-insert into forma_pagamento(nome) values('PIX');
+insert into forma_pagamento(descricao) values('Dinheiro');
+insert into forma_pagamento(descricao) values('Cartão de crédito');
+insert into forma_pagamento(descricao) values('PIX');
 
 insert into permissao(nome, descricao) values('Permissao 1', 'Descrição da permissão 1');
 insert into permissao(nome, descricao) values('Permissao 2', 'Descrição da permissão 2');
